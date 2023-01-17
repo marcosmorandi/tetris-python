@@ -107,3 +107,11 @@ T = [['.....',
       '..0..',
       '.....']]
 
+largura_tela = 800
+altura_tela = 700
+largura_jogo = 300
+altura_jogo = 600
+tamanho_bloco = 30
+
+topo_esquerdo_x = (largura_tela - largura_jogo) // 2
+topo_esquerdo_y = largura_tela - largura_jogo
