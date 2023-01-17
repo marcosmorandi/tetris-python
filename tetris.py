@@ -126,10 +126,43 @@ class Piece(object):
 
 def create_grid(locked_pos = ()):
     grid = [[(0,0,0) for x in range(10)] for x in range(20)] # "x" pode ser substituido por "_"
-    
+
     for i in range(len(grid)):
         for j in range(len(grid[i])):
             if (j, i) in locked_pos:
                 c = locked_pos[(j, i)]
                 grid[i][j] = c
     return grid
+
+def convert_shape_format():
+    pass
+
+def valid_space():
+    pass
+
+def check_lost():
+    pass
+
+def get_shape():
+    return rando.choice(formatos)
+
+def draw_text_middle():
+    pass
+
+def draw_grid(surface):
+    surface.fill((0,0,0,0))
+
+def clear_rows():
+    pass
+
+def draw_next_shape():
+    pass
+
+def draw_windows():
+    pass
+
+def main():
+    pass
+
+def main menu():
+    pass
