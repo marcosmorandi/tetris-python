@@ -1,9 +1,6 @@
 import pygame # instalar pygame
 import randon
 
-formatos = [S, Z, I, O, J, L, T]
-cor_formatos = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)]
-
 # formato das peças:
 S = [['.....',
       '......',
@@ -107,6 +104,9 @@ T = [['.....',
       '..0..',
       '.....']]
 
+formatos = [S, Z, I, O, J, L, T] # index de 0 a 6
+cor_formatos = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)]
+
 largura_tela = 800
 altura_tela = 700
 largura_jogo = 300
@@ -115,3 +115,11 @@ tamanho_bloco = 30
 
 topo_esquerdo_x = (largura_tela - largura_jogo) // 2
 topo_esquerdo_y = largura_tela - largura_jogo
+
+class Piece(object): 
+    def __init__(self, x, y, shapes):
+        self.x = x
+        self.y = y
+        self.shape = shape
+        self.color = cor_formatos[formatos.index(shape)]
+        self.rotation = 0
