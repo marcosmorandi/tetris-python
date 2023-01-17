@@ -123,3 +123,13 @@ class Piece(object):
         self.shape = shape
         self.color = cor_formatos[formatos.index(shape)]
         self.rotation = 0
+
+def create_grid(locked_pos = ()):
+    grid = [[(0,0,0) for x in range(10)] for x in range(20)] # "x" pode ser substituido por "_"
+    
+    for i in range(len(grid)):
+        for j in range(len(grid[i])):
+            if (j, i) in locked_pos:
+                c = locked_pos[(j, i)]
+                grid[i][j] = c
+    return grid
