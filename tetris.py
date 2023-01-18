@@ -124,7 +124,7 @@ class Piece(object):
         self.color = cor_formatos[formatos.index(shape)]
         self.rotation = 0
 
-def create_grid(locked_pos = ()):
+def create_grid({}):
     grid = [[(0,0,0) for x in range(10)] for x in range(20)] # "x" pode ser substituido por "_"
 
     for i in range(len(grid)):
@@ -156,15 +156,13 @@ def draw_grid(surface, grid):
 
     pygame.draw.rect(surface, (255,0,0), (topo_esquerdo_x, topo_esquerdo_y, largura_jogo, altura_jogo), 4)
 
-    pygame.display.update()
-
 def clear_rows():
     pass
 
 def draw_next_shape():
     pass
 
-def draw_windows():
+def draw_windows(surface, grid):
     surface.fill((0,0,0,0))
 
     pygame.font.init()
@@ -172,9 +170,25 @@ def draw_windows():
     label = font.render('Tetris', 1, (255,255,255))
 
     surface.blit(label, (topo_esquerdo_x + largura_jogo/2 - (label.get_width()/2), 30))
+    draw_grid(surface, grid)
+    pygame.display.update()
 
 def main():
-    pass
+
+    locked_positions = {}
+    grid = create_grid(locked_positions)
+
+    change_piece = False
+    run = True
+    current_piece = get_shape()
+    next_piece = get_shape
+    clock = pygame.time.Clock()
+    fall_time = 0
+
+    while run:
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
 
 def main menu():
     pass
