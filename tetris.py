@@ -150,11 +150,6 @@ def draw_text_middle():
     pass
 
 def draw_grid(surface, grid):
-    for i in range(len(grid)):
-        for j in range(len(grid[i])):
-            pygame.draw.rect(surface, grid[i][j], (topo_esquerdo_x + j*tamanho_bloco, topo_esquerdo_y + i*tamanho_bloco, tamanho_bloco, tamanho_bloco), 0)
-
-    pygame.draw.rect(surface, (255,0,0), (topo_esquerdo_x, topo_esquerdo_y, largura_jogo, altura_jogo), 4)
 
 def clear_rows():
     pass
@@ -162,7 +157,7 @@ def clear_rows():
 def draw_next_shape():
     pass
 
-def draw_windows(surface, grid):
+def draw_window(surface, grid):
     surface.fill((0,0,0,0))
 
     pygame.font.init()
@@ -170,10 +165,17 @@ def draw_windows(surface, grid):
     label = font.render('Tetris', 1, (255,255,255))
 
     surface.blit(label, (topo_esquerdo_x + largura_jogo/2 - (label.get_width()/2), 30))
+
+    for i in range(len(grid)):
+        for j in range(len(grid[i])):
+            pygame.draw.rect(surface, grid[i][j], (topo_esquerdo_x + j*tamanho_bloco, topo_esquerdo_y + i*tamanho_bloco, tamanho_bloco, tamanho_bloco), 0)
+
+    pygame.draw.rect(surface, (255,0,0), (topo_esquerdo_x, topo_esquerdo_y, largura_jogo, altura_jogo), 4)
+
     draw_grid(surface, grid)
     pygame.display.update()
 
-def main():
+def main(win):
 
     locked_positions = {}
     grid = create_grid(locked_positions)
@@ -198,7 +200,7 @@ def main():
                 if event.key == pygame.K_RIGHT:
                     current_piece.x += 1
                     if not(valid_space(current_piece, grid)):
-                        current_piece += 1
+                        current_piece -= 1
                 if event.key == pygame.K_DOWN:
                     current_piece.y +=1
                     if not(valid_space(current_piece, grid)):
@@ -206,12 +208,13 @@ def main():
                 if event.key == pygame.K_UP:
                     current_piece.rotation += 1
                     if not(valid_space(current_piece, grid)):
-                        current_piece += 1
+                        current_piece -= 1
 
-        draw_window(surface, grid)
+        draw_window(win, grid)
 
-def main menu():
-    pass
+def main menu(win):
+    main(win)
 
 win = pygame.display.set_mode((largura_tela, altura_tela))
-main menu()
+pygame.display.set_caption('Tetris')
+main menu(win)
