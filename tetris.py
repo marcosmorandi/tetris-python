@@ -104,24 +104,24 @@ T = [['.....',
       '..0..',
       '.....']]
 
-formatos = [S, Z, I, O, J, L, T] # index de 0 a 6
-cor_formatos = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)]
+shapes = [S, Z, I, O, J, L, T] # index de 0 a 6
+shape_colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)]
 
-largura_tela = 800
-altura_tela = 700
-largura_jogo = 300
-altura_jogo = 600
-tamanho_bloco = 30
+s_width = 800
+s_height = 700
+play_width = 300
+play_height = 600
+block_size = 30
 
-topo_esquerdo_x = (largura_tela - largura_jogo) // 2
-topo_esquerdo_y = largura_tela - largura_jogo
+top_left_x = (s_width - play_width) // 2
+top_left_y = s_height - play_height
 
 class Piece(object): 
     def __init__(self, x, y, shapes):
         self.x = x
         self.y = y
         self.shape = shape
-        self.color = cor_formatos[formatos.index(shape)]
+        self.color = cor_formatos[shapes.index(shape)]
         self.rotation = 0
 
 def create_grid({}):
@@ -144,12 +144,17 @@ def check_lost():
     pass
 
 def get_shape():
-    return Piece(5, 0, random.choice(formatos))
+    return Piece(5, 0, random.choice(shapes))
 
 def draw_text_middle():
     pass
 
 def draw_grid(surface, grid):
+    sx = top_left_x
+    sy = top_left_y
+
+    for i in range(len(grid)):
+        pygame.draw.line(surface, (128,128,128), (sx, sy + i * block_size))
 
 def clear_rows():
     pass
@@ -164,13 +169,13 @@ def draw_window(surface, grid):
     font = pygame.font.SysFont('comicsans', 60)
     label = font.render('Tetris', 1, (255,255,255))
 
-    surface.blit(label, (topo_esquerdo_x + largura_jogo/2 - (label.get_width()/2), 30))
+    surface.blit(label, (top_left_x + play_width/2 - (label.get_width()/2), 30))
 
     for i in range(len(grid)):
         for j in range(len(grid[i])):
-            pygame.draw.rect(surface, grid[i][j], (topo_esquerdo_x + j*tamanho_bloco, topo_esquerdo_y + i*tamanho_bloco, tamanho_bloco, tamanho_bloco), 0)
+            pygame.draw.rect(surface, grid[i][j], (top_left_x + j*block_size, top_left_y + i*block_size, block_size, block_size), 0)
 
-    pygame.draw.rect(surface, (255,0,0), (topo_esquerdo_x, topo_esquerdo_y, largura_jogo, altura_jogo), 4)
+    pygame.draw.rect(surface, (255,0,0), (top_left_x, top_left_y, play_width, play_height), 4)
 
     draw_grid(surface, grid)
     pygame.display.update()
