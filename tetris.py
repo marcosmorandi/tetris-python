@@ -144,13 +144,22 @@ def convert_shape_format(shape):
             if column == '0':
                 positions.append((shape.x + j, shape.y + i))
 
-    for i, pos in enumerate(positions)
+    for i, pos in enumerate(positions):
         positions[i] = (pos[0] - 2, pos[1] - 4)
 
-def valid_space():
-    pass
+def valid_space(shape, grid):
+    accepted_pos = [[(j, i) for j in range(10)] if grid [i] [j] == (0,0,0) for i in range(20)]
+    accepted_pos = [j for sub in accepted_pos for j in sub]
 
-def check_lost():
+    formatted = convert_shape_format(shape)
+
+    for pos in formatted:
+        if pos not in accepted_pos:
+            if pos[1] > -1:
+                return False
+    return True
+
+def check_lost(positions):
     pass
 
 def get_shape():
