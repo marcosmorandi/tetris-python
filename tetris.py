@@ -144,13 +144,19 @@ def check_lost():
     pass
 
 def get_shape():
-    return rando.choice(formatos)
+    return random.choice(formatos)
 
 def draw_text_middle():
     pass
 
-def draw_grid(surface):
-    surface.fill((0,0,0,0))
+def draw_grid(surface, grid):
+    for i in range(len(grid)):
+        for j in range(len(grid[i])):
+            pygame.draw.rect(surface, grid[i][j], (topo_esquerdo_x + j*tamanho_bloco, topo_esquerdo_y + i*tamanho_bloco, tamanho_bloco, tamanho_bloco), 0)
+
+    pygame.draw.rect(surface, (255,0,0), (topo_esquerdo_x, topo_esquerdo_y, largura_jogo, altura_jogo), 4)
+
+    pygame.display.update()
 
 def clear_rows():
     pass
@@ -159,7 +165,13 @@ def draw_next_shape():
     pass
 
 def draw_windows():
-    pass
+    surface.fill((0,0,0,0))
+
+    pygame.font.init()
+    font = pygame.font.SysFont('comicsans', 60)
+    label = font.render('Tetris', 1, (255,255,255))
+
+    surface.blit(label, (topo_esquerdo_x + largura_jogo/2 - (label.get_width()/2), 30))
 
 def main():
     pass
