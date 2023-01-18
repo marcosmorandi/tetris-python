@@ -134,8 +134,18 @@ def create_grid({}):
                 grid[i][j] = c
     return grid
 
-def convert_shape_format():
-    pass
+def convert_shape_format(shape):
+    positions = []
+    format = shape.shape[shape.rotation % len(shape.shape)]
+
+    for i, line in enumerate(format):
+        row = list(line)
+        for j, column in enumerate(row):
+            if column == '0':
+                positions.append((shape.x + j, shape.y + i))
+
+    for i, pos in enumerate(positions)
+        positions[i] = (pos[0] - 2, pos[1] - 4)
 
 def valid_space():
     pass
@@ -154,7 +164,9 @@ def draw_grid(surface, grid):
     sy = top_left_y
 
     for i in range(len(grid)):
-        pygame.draw.line(surface, (128,128,128), (sx, sy + i * block_size))
+        pygame.draw.line(surface, (128,128,128), (sx, sy + i * block_size), (sx + play_width, sy + i * block_size))
+        for j in range(len(grid[i])):
+            pygame.draw.line(surface, (128,128,128), (sx + j * block_size, sy), (sx + j * block_size, sy + play_height))
 
 def clear_rows():
     pass
