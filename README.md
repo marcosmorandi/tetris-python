@@ -2,6 +2,12 @@
 
 Em construção...
 
+
+<!-- !!!Comentários não aparecem no GitHub!!! -->
+
+
+<!-- Idéias: -->
+
 <!-- Escrever um texto a respeito do Tetris. -->
 
 <!-- Uma imagem chamativa. -->
