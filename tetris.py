@@ -144,7 +144,7 @@ def check_lost():
     pass
 
 def get_shape():
-    return random.choice(formatos)
+    return Piece(5, 0, random.choice(formatos))
 
 def draw_text_middle():
     pass
@@ -190,5 +190,28 @@ def main():
             if event.type == pygame.QUIT:
                 run = False
 
+            if event.type == pygame.KEYDWN
+                if event.key == pygame.K_LEFT:
+                    current_piece.x -= 1
+                    if not(valid_space(current_piece, grid)):
+                        current_piece += 1
+                if event.key == pygame.K_RIGHT:
+                    current_piece.x += 1
+                    if not(valid_space(current_piece, grid)):
+                        current_piece += 1
+                if event.key == pygame.K_DOWN:
+                    current_piece.y +=1
+                    if not(valid_space(current_piece, grid)):
+                        current_piece.y -= 1
+                if event.key == pygame.K_UP:
+                    current_piece.rotation += 1
+                    if not(valid_space(current_piece, grid)):
+                        current_piece += 1
+
+        draw_window(surface, grid)
+
 def main menu():
     pass
+
+win = pygame.display.set_mode((largura_tela, altura_tela))
+main menu()
