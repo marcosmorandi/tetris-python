@@ -14,4 +14,4 @@ Em construção...
 
 <!-- .gif do projeto rodando. -->
 
-<!-- Se possível um link para abrir o jogo -->
+<!-- Se possível um link para abrir o jogo. -->
