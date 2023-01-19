@@ -1,5 +1,5 @@
-import pygame # Importar o "pygame"!
-import randon # Já importado o "randon".
+import pygame # Importar o "pygame": No terminal, "pip install pygame". Feito!
+import randon
 
 # Formato das peças:
 S = [['.....',
