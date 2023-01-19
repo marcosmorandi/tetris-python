@@ -156,7 +156,6 @@ def convert_shape_format(shape):
 def valid_space(shape, grid):
     accepted_pos = [[(j, i) for j in range(10) if grid [i] [j] == (0,0,0)] for i in range(20)]
     accepted_pos = [j for sub in accepted_pos for j in sub]
-
     formatted = convert_shape_format(shape)
 
     for pos in formatted:
@@ -181,7 +180,6 @@ def get_shape():
 def draw_text_middle(surface, text, size, color):
     font = pygame.font.SysFont("comicsans", size, bold=True)
     label = font.render(text, 1, color)
-
     surface.blit(label, (top_left_x + play_width / 2 - (label.get_width() / 2), top_left_y + play_height / 2 - label.get_height() / 2))
 
 
@@ -226,17 +224,15 @@ def draw_window(surface, grid, score = 0, last_score = 0):
     for i in range(len(grid)):
         for j in range(len(grid[i])):
             pygame.draw.rect(surface, grid[i][j], (top_left_x + j * block_size, top_left_y + i * block_size, block_size, block_size), 0)
-    pygame.draw.rect(surface, (255,0,0), (top_left_x, top_left_y, play_width, play_height), 5)
 
+    pygame.draw.rect(surface, (255,0,0), (top_left_x, top_left_y, play_width, play_height), 5)
     draw_grid(surface, grid)
     # pygame.display.update()
 
 
 def main(win):
-
     locked_positions = {}
     grid = create_grid(locked_positions)
-
     change_piece = False
     run = True
     current_piece = get_shape()
