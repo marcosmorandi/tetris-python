@@ -1,6 +1,6 @@
 import pygame # Importar o "pygame": No terminal, "pip install pygame". Feito!
 import random
-
+pygame.font.init()
 
 # Formato das peças:
 S = [['.....',
@@ -326,7 +326,7 @@ def main(win):
         if check_lost(locked_positions):
             run = False
 
-    pygame.display.quit() # Talvez ".QUIT" em maiúsculo?
+    pygame.display.quit()
 
 def main_menu(win):
     run = True
