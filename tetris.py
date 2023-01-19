@@ -4,8 +4,6 @@ pygame.font.init()
 
 
 # Variáveis globais:
-shapes = [S, Z, I, O, J, L, T] # Index de 0 a 6 representa o formato das peças.
-shape_colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)] # Cores referentes ao index 0 a 6.
 s_width = 800
 s_height = 700
 play_width = 300
@@ -117,6 +115,9 @@ T = [['.....',
       '.00..',
       '..0..',
       '.....']]
+
+shapes = [S, Z, I, O, J, L, T] # Index de 0 a 6 representa o formato das peças.
+shape_colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)] # Cores referentes ao index 0 a 6.
 
 
 class Piece(object): 
@@ -348,7 +349,7 @@ def main_menu(win):
     run = True
     while run:
         win.fill((0,0,0))
-        draw_text_middle(win, 'Aperte qualquer tecla para jogar!', 60, (255,255,255))
+        draw_text_middle(win, 'Aperte qualquer tecla para jogar!', 30, (255,255,255))
         pygame.display.update()
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
