@@ -1,5 +1,5 @@
-import pygame # Instalar "pygame"?
-import randon
+import pygame # Importar o "pygame"!
+import randon # Já importado o "randon".
 
 # Formato das peças:
 S = [['.....',
@@ -105,7 +105,7 @@ T = [['.....',
       '.....']]
 
 shapes = [S, Z, I, O, J, L, T] # Index de 0 a 6.
-shape_colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)]
+shape_colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)] # Cores referentes ao index 0 a 6.
 
 s_width = 800
 s_height = 700
@@ -274,7 +274,7 @@ def main(win):
         if check_lost(locked_positions):
             run = False
 
-    pygame.display.quit() # Talvez ".QUIT" ou maiúsculo?
+    pygame.display.quit() # Talvez ".QUIT" em maiúsculo?
 
 def main menu(win):
     run = True
