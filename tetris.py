@@ -234,6 +234,12 @@ def draw_next_shape(shape, surface):
     surface.blit(label, (sx + 10, sy - 30))
 
 
+def update_score(): # criar...
+
+
+def max_score(): # criar...
+
+
 def draw_window(surface, grid, score = 0, last_score = 0):
     surface.fill((0,0,0,0))
     pygame.font.init()
