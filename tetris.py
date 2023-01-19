@@ -195,6 +195,7 @@ def draw_grid(surface, grid):
 
 def clear_rows():
     inc = 0
+
     for i in range(len(grid)-1, -1, -1):
         row = grid[i]
         if (0,0,0) not in row:
@@ -207,7 +208,7 @@ def clear_rows():
                     continue
 
     if inc > 0:
-        for key in sorted(list(locked), key=lambda x: x[i])[::-1]
+        for key in sorted(list(locked), key=lambda x: x[i])[::-1]:
             x, y = key
             if y < ind:
                 newKey = (x, y + inc)
