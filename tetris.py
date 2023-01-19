@@ -1,5 +1,6 @@
 import pygame # Importar o "pygame": No terminal, "pip install pygame". Feito!
-import randon
+import random
+
 
 # Formato das peças:
 S = [['.....',
@@ -104,24 +105,25 @@ T = [['.....',
       '..0..',
       '.....']]
 
-shapes = [S, Z, I, O, J, L, T] # Index de 0 a 6.
-shape_colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)] # Cores referentes ao index 0 a 6.
 
+# Variáveis globais:
+shapes = [S, Z, I, O, J, L, T] # Index de 0 a 6 representa o formato das peças.
+shape_colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 165, 0), (0, 0, 255), (128, 0, 128)] # Cores referentes ao index 0 a 6.
 s_width = 800
 s_height = 700
 play_width = 300
 play_height = 600
 block_size = 30
-
 top_left_x = (s_width - play_width) // 2
 top_left_y = s_height - play_height
+
 
 class Piece(object): 
     def __init__(self, x, y, shapes):
         self.x = x
         self.y = y
         self.shape = shape
-        self.color = cor_formatos[shapes.index(shape)]
+        self.color = shape_colors[shapes.index(shape)]
         self.rotation = 0
 
 def create_grid(locked_positions = {}):
@@ -150,13 +152,13 @@ def convert_shape_format(shape):
     return positions
 
 def valid_space(shape, grid):
-    accepted_position = [[(j, i) for j in range(10) if grid [i] [j] == (0,0,0)] for i in range(20)]
-    accepted_position = [j for sub in accepted_pos for j in sub]
+    accepted_pos = [[(j, i) for j in range(10) if grid [i] [j] == (0,0,0)] for i in range(20)]
+    accepted_pos = [j for sub in accepted_pos for j in sub]
 
     formatted = convert_shape_format(shape)
 
     for pos in formatted:
-        if pos not in accepted_position:
+        if pos not in accepted_pos:
             if pos[1] > -1:
                 return False
     return True
@@ -171,8 +173,11 @@ def check_lost(positions):
 def get_shape():
     return Piece(5, 0, random.choice(shapes))
 
-def draw_text_middle():
-    pass
+def draw_text_middle(surface, text, size, color):
+    font = pygame.font.SysFont("comicsans", size, bold=True)
+    label = font.render(text, 1, color)
+
+    surface.blit(label, (top_left_x + play_width /2 - (label.get_width()/2), top_left_y + play_height/2 - label.get_height()/2))
 
 def draw_grid(surface, grid):
     sx = top_left_x
@@ -276,7 +281,7 @@ def main(win):
 
     pygame.display.quit() # Talvez ".QUIT" em maiúsculo?
 
-def main menu(win):
+def main_menu(win):
     run = True
     while run:
         win.fill((0,0,0))
@@ -287,7 +292,8 @@ def main menu(win):
                 run = False
             if event.type == pygame.KEYDOWN:
                 main(win)
+    pygame.display.quit()
 
 win = pygame.display.set_mode((s_width, s_height))
 pygame.display.set_caption('Tetris')
-main menu(win)
+main_menu(win)
