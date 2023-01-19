@@ -124,7 +124,7 @@ class Piece(object):
         self.color = cor_formatos[shapes.index(shape)]
         self.rotation = 0
 
-def create_grid({}):
+def create_grid(locked_positions = {}):
     grid = [[(0,0,0) for x in range(10)] for x in range(20)] # O "x" pode ser substituído por "_".
 
     for i in range(len(grid)):
@@ -147,14 +147,16 @@ def convert_shape_format(shape):
     for i, pos in enumerate(positions):
         positions[i] = (pos[0] - 2, pos[1] - 4)
 
+    return positions
+
 def valid_space(shape, grid):
-    accepted_pos = [[(j, i) for j in range(10)] if grid [i] [j] == (0,0,0) for i in range(20)]
-    accepted_pos = [j for sub in accepted_pos for j in sub]
+    accepted_position = [[(j, i) for j in range(10) if grid [i] [j] == (0,0,0)] for i in range(20)]
+    accepted_position = [j for sub in accepted_pos for j in sub]
 
     formatted = convert_shape_format(shape)
 
     for pos in formatted:
-        if pos not in accepted_pos:
+        if pos not in accepted_position:
             if pos[1] > -1:
                 return False
     return True
@@ -223,7 +225,7 @@ def main(win):
         fall_time += clock.get_rawtime() 
         clock.tick()
 
-        if fall_time/1000 > fall_speed
+        if fall_time/1000 >= fall_speed:
             fall_time = 0
             current_piece.y +=1
             if not(valid_space(current_piece, grid)) and current_piece.y > 0:
@@ -234,7 +236,7 @@ def main(win):
             if event.type == pygame.QUIT:
                 run = False
 
-            if event.type == pygame.KEYDWN
+            if event.type == pygame.KEYDWN:
                 if event.key == pygame.K_LEFT:
                     current_piece.x -= 1
                     if not(valid_space(current_piece, grid)):
@@ -272,10 +274,19 @@ def main(win):
         if check_lost(locked_positions):
             run = False
 
-    pygame.display.quit() # Talvez ".QUIT" maiúsculo?
+    pygame.display.quit() # Talvez ".QUIT" ou maiúsculo?
 
 def main menu(win):
-    main(win)
+    run = True
+    while run:
+        win.fill((0,0,0))
+        draw_text_middle(win, 'Aperte qualquer tecla para jogar!', 60, (255,255,255))
+        pygame.display.update()
+        for event in pygame.event.get():
+            if event.type == pygame.QUIT:
+                run = False
+            if event.type == pygame.KEYDOWN:
+                main(win)
 
 win = pygame.display.set_mode((s_width, s_height))
 pygame.display.set_caption('Tetris')
