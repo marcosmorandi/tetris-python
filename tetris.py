@@ -126,6 +126,7 @@ class Piece(object):
         self.color = shape_colors[shapes.index(shape)]
         self.rotation = 0
 
+
 def create_grid(locked_positions = {}):
     grid = [[(0,0,0) for x in range(10)] for x in range(20)] # O "x" pode ser substituído por "_".
 
@@ -135,6 +136,7 @@ def create_grid(locked_positions = {}):
                 c = locked_pos[(j, i)]
                 grid[i][j] = c
     return grid
+
 
 def convert_shape_format(shape):
     positions = []
@@ -148,8 +150,8 @@ def convert_shape_format(shape):
 
     for i, pos in enumerate(positions):
         positions[i] = (pos[0] - 2, pos[1] - 4)
-
     return positions
+
 
 def valid_space(shape, grid):
     accepted_pos = [[(j, i) for j in range(10) if grid [i] [j] == (0,0,0)] for i in range(20)]
@@ -163,6 +165,7 @@ def valid_space(shape, grid):
                 return False
     return True
 
+
 def check_lost(positions):
     for pos in positions:
         x, y, = pos
@@ -170,14 +173,17 @@ def check_lost(positions):
             return True
     return False
 
+
 def get_shape():
     return Piece(5, 0, random.choice(shapes))
+
 
 def draw_text_middle(surface, text, size, color):
     font = pygame.font.SysFont("comicsans", size, bold=True)
     label = font.render(text, 1, color)
 
-    surface.blit(label, (top_left_x + play_width /2 - (label.get_width()/2), top_left_y + play_height/2 - label.get_height()/2))
+    surface.blit(label, (top_left_x + play_width / 2 - (label.get_width() / 2), top_left_y + play_height / 2 - label.get_height() / 2))
+
 
 def draw_grid(surface, grid):
     sx = top_left_x
@@ -187,6 +193,7 @@ def draw_grid(surface, grid):
         pygame.draw.line(surface, (128,128,128), (sx, sy + i * block_size), (sx + play_width, sy + i * block_size))
         for j in range(len(grid[i])):
             pygame.draw.line(surface, (128,128,128), (sx + j * block_size, sy), (sx + j * block_size, sy + play_height))
+
 
 def clear_rows():
     pass
