@@ -25,5 +25,3 @@ pt.wikipedia.org/wiki/Tetris
 </p>
 </br>
 Será que consegue bater meu recorde? :sunglasses:
-
-<!-- Se possível um link para abrir o jogo. -->
