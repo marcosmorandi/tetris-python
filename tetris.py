@@ -130,7 +130,7 @@ class Piece(object):
 
 
 def create_grid(locked_pos = {}):
-    grid = [[(0,0,0) for x in range(10)] for x in range(20)] # O "x" pode ser substituído por "_".
+    grid = [[(0,0,0) for x in range(10)] for x in range(20)]
 
     for i in range(len(grid)):
         for j in range(len(grid[i])):
