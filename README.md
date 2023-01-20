@@ -19,9 +19,11 @@ Em 2014, um grupo de psicólogos da universidade de Plymouth, nos Estados Unidos
 
 Fonte:</br>
 pt.wikipedia.org/wiki/Tetris
+</br>
+<p align="center">
+<img src="assets/tetris.png">
+</p>
 
-<!-- Uma imagem chamativa. -->
-
-<!-- "será que consegue bater meu score? 860" -->
+<!-- "será que consegue bater meu Recorde? 860" -->
 
 <!-- Se possível um link para abrir o jogo. -->
