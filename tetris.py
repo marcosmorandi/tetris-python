@@ -121,7 +121,7 @@ shape_colors = [(0, 255, 0), (255, 0, 0), (0, 255, 255), (255, 255, 0), (255, 16
 
 
 class Piece(object): 
-    def __init__(self, x, y, shapes):
+    def __init__(self, x, y, shape):
         self.x = x
         self.y = y
         self.shape = shape
@@ -350,7 +350,7 @@ def main(win):
             change_piece = False
             score += clear_rows(grid, locked_positions) * 10
 
-        draw_window(win, grid, socore, last_score)
+        draw_window(win, grid, score, last_score)
         draw_next_shape(next_piece, win)
         pygame.display.update()
 
