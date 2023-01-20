@@ -12,12 +12,13 @@ Construído sobre regras simples, o Tetris se estabeleceu como um dos grandes vi
 
 Tetris está disponível em mais de 65 plataformas, estabelecendo um recorde mundial do Guinness para o videogame mais adaptado. Tetris está enraizado na cultura popular e sua popularidade se estende além da esfera dos videogames; as imagens do jogo influenciaram a arquitetura, a música e o cosplay. O jogo também foi objeto de várias pesquisas que analisaram sua complexidade teórica e mostraram seu efeito no cérebro humano após uma sessão, em particular o efeito Tetris.
 
-O site IGN colocou Tetris na sua lista de dez mais influentes jogos de todos os tempos
+O site IGN colocou Tetris na sua lista de dez mais influentes jogos de todos os tempos.
 
-Curiosidade:
+Curiosidade:</br>
 Em 2014, um grupo de psicólogos da universidade de Plymouth, nos Estados Unidos, defende que o desejo de consumir alimentos calóricos, bebidas alcoólicas e cigarros diminui ao jogar Tetris. Segundo os investigadores, a montagem das peças do Tetris e a rapidez do jogo faz com que os jogadores não tenham tempo para pensar em comer, o mesmo acontecendo com outros vícios, como o álcool e o tabaco.
 
-Fonte: pt.wikipedia.org/wiki/Tetris
+Fonte:</br>
+pt.wikipedia.org/wiki/Tetris
 
 <!-- Uma imagem chamativa. -->
 
