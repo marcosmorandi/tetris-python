@@ -220,7 +220,7 @@ def clear_rows(grid, locked):
 
 def draw_next_shape(shape, surface):
     font = pygame.font.SysFont('comicsans', 30)
-    label = font.render('Next Shape', 1, (255,255,255))
+    label = font.render('Próximo Formato', 1, (255,255,255))
     sx = top_left_x + play_width + 50
     sy = top_left_y + play_height / 2 - 100
     format = shape.shape[shape.rotation % len(shape.shape)]
@@ -230,7 +230,7 @@ def draw_next_shape(shape, surface):
         for j, column in enumerate(row):
             if column == '0':
                 pygame.draw.rect(surface, shape.color, (sx + j * block_size, sy + i * block_size, block_size, block_size), 0)
-    
+
     surface.blit(label, (sx + 10, sy - 30))
 
 
@@ -252,7 +252,7 @@ def max_score():
 
 
 def draw_window(surface, grid, score = 0, last_score = 0):
-    surface.fill((0,0,0,0))
+    surface.fill((0,0,0))
     pygame.font.init()
     font = pygame.font.SysFont('comicsans', 60)
     label = font.render('Tetris', 1, (255,255,255))
@@ -260,7 +260,7 @@ def draw_window(surface, grid, score = 0, last_score = 0):
 
     # Pontuação atual
     font = pygame.font.SysFont('comicsans', 30)
-    label = font.render('Score: ' + str(score), 1, (255,255,255))
+    label = font.render('Pontuação: ' + str(score), 1, (255,255,255))
     sx = top_left_x + play_width + 50
     sy = top_left_y + play_height / 2 - 100
     surface.blit(label, (sx + 20, sy + 160))
@@ -287,11 +287,12 @@ def main(win):
     change_piece = False
     run = True
     current_piece = get_shape()
-    next_piece = get_shape ()
+    next_piece = get_shape()
     clock = pygame.time.Clock()
     fall_time = 0
     fall_speed = 0.27
     level_time = 0
+    score = 0
 
     while run:
         grid = create_grid(locked_positions)
@@ -306,7 +307,7 @@ def main(win):
 
         if fall_time / 1000 > fall_speed:
             fall_time = 0
-            current_piece.y +=1
+            current_piece.y += 1
             if not(valid_space(current_piece, grid)) and current_piece.y > 0:
                 current_piece.y -= 1
                 change_piece = True
@@ -316,7 +317,7 @@ def main(win):
                 run = False
                 pygame.display.quit()
 
-            if event.type == pygame.KEYDWN:
+            if event.type == pygame.KEYDOWN:
                 if event.key == pygame.K_LEFT:
                     current_piece.x -= 1
                     if not(valid_space(current_piece, grid)):
@@ -326,13 +327,13 @@ def main(win):
                     if not(valid_space(current_piece, grid)):
                         current_piece.x -= 1
                 if event.key == pygame.K_DOWN:
-                    current_piece.y +=1
+                    current_piece.y += 1
                     if not(valid_space(current_piece, grid)):
                         current_piece.y -= 1
                 if event.key == pygame.K_UP:
                     current_piece.rotation += 1
                     if not(valid_space(current_piece, grid)):
-                        current_piece -= 1
+                        current_piece.rotation -= 1
 
         shape_pos = convert_shape_format(current_piece)
 
