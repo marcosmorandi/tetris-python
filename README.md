@@ -23,7 +23,7 @@ pt.wikipedia.org/wiki/Tetris
 <p align="center">
 <img src="assets/tetris.png">
 </p>
-
-<!-- "será que consegue bater meu Recorde? 860" -->
+</br>
+Será que consegue bater meu recorde? :sunglasses:
 
 <!-- Se possível um link para abrir o jogo. -->
