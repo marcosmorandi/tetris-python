@@ -220,8 +220,8 @@ def clear_rows(grid, locked):
 
 def draw_next_shape(shape, surface):
     font = pygame.font.SysFont('comicsans', 30)
-    label = font.render('Próximo Formato', 1, (255,255,255))
-    sx = top_left_x + play_width + 50
+    label = font.render('Próxima Forma:', 1, (255,255,255))
+    sx = top_left_x + play_width + 5 # Posiciona o texto na tela.
     sy = top_left_y + play_height / 2 - 100
     format = shape.shape[shape.rotation % len(shape.shape)]
 
@@ -258,16 +258,16 @@ def draw_window(surface, grid, score = 0, last_score = 0):
     label = font.render('Tetris', 1, (255,255,255))
     surface.blit(label, (top_left_x + play_width / 2 - (label.get_width() / 2), 30))
 
-    # Pontuação atual
+    # Pontuação
     font = pygame.font.SysFont('comicsans', 30)
     label = font.render('Pontuação: ' + str(score), 1, (255,255,255))
-    sx = top_left_x + play_width + 50
+    sx = top_left_x + play_width + 5 # Posiciona o texto na tela.
     sy = top_left_y + play_height / 2 - 100
     surface.blit(label, (sx + 20, sy + 160))
 
-    # Ultima pontuação:
-    label = font.render('Maior Pontuação: ' + last_score, 1, (255,255,255))
-    sx = top_left_x - 200
+    # Recorde:
+    label = font.render('Recorde: ' + last_score, 1, (255,255,255))
+    sx = top_left_x - 250 # Posiciona o texto na tela.
     sy = top_left_y + 200
     surface.blit(label, (sx + 20, sy + 160))
 
@@ -277,7 +277,6 @@ def draw_window(surface, grid, score = 0, last_score = 0):
 
     pygame.draw.rect(surface, (255,0,0), (top_left_x, top_left_y, play_width, play_height), 5)
     draw_grid(surface, grid)
-    # pygame.display.update()
 
 
 def main(win):
