@@ -237,7 +237,11 @@ def draw_next_shape(shape, surface):
 def update_score(): # criar...
 
 
-def max_score(): # criar...
+def max_score():
+    with open('scores.txt', 'r') as f:
+        lines = f.readlines()
+        score = lines[0].strip()
+    return score
 
 
 def draw_window(surface, grid, score = 0, last_score = 0):
