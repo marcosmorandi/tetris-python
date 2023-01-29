@@ -1,5 +1,6 @@
 # tetris-python
 
+# Descrição do projeto
 Tetris é um jogo electrônico muito popular, desenvolvido por Alexey Pajitnov, Dmitry Pavlovsky e Vadim Gerasimov, e lançado em junho de 1984. Pajitnov e Pavlovsky eram engenheiros informáticos no Centro de Computadores da Academia Russa das Ciências e Vadim era um aluno com 16 anos.
 
 Tetris foi um dos primeiros itens de exportação de sucesso da Rússia e um dos primeiros a ser visto como um tipo de vício. Atingiu um público alvo inédito na história dos videogames.
@@ -20,8 +21,15 @@ Em 2014, um grupo de psicólogos da universidade de Plymouth, nos Estados Unidos
 Fonte:</br>
 pt.wikipedia.org/wiki/Tetris
 </br>
+
+# Captura de tela
 <p align="center">
 <img src="assets/tetris.png">
 </p>
 </br>
 Será que consegue bater meu recorde? :sunglasses:
+
+# Rodando o projeto
+* git clone + a URL fornecida no botão "Code" acima.
+</br>ou</br>
+* Fazer o "Download ZIP" no botão "Code" acima.
