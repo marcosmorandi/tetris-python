@@ -1,6 +1,8 @@
 # tetris-python
 
 # Descrição do projeto
+Minha versão de Tetris, desenvolvido em Python.
+
 Tetris é um jogo electrônico muito popular, desenvolvido por Alexey Pajitnov, Dmitry Pavlovsky e Vadim Gerasimov, e lançado em junho de 1984. Pajitnov e Pavlovsky eram engenheiros informáticos no Centro de Computadores da Academia Russa das Ciências e Vadim era um aluno com 16 anos.
 
 Tetris foi um dos primeiros itens de exportação de sucesso da Rússia e um dos primeiros a ser visto como um tipo de vício. Atingiu um público alvo inédito na história dos videogames.
